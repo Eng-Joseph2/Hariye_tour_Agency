@@ -10,7 +10,7 @@ export default function PopularTours() {
 
   const HandalReadTour = () => {
     axios
-      .get("http://localhost:9005/api/readAllTour")
+      .get("https://hariye-tour-agency-gxx3.onrender.com/api/readAllTour")
       .then((res) => {
         setData(res.data.data);
       })
@@ -47,7 +47,7 @@ export default function PopularTours() {
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={`http://localhost:9005/images/${tour.image}`}
+                    src={`https://hariye-tour-agency-gxx3.onrender.com/images/${tour.image}`}
                     alt={tour.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                   />

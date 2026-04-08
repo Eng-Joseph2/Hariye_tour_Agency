@@ -11,9 +11,13 @@ function AcceptedBookingsTable() {
 
   const fetchAcceptedBookings = async () => {
     try {
-      const res = await axios.get("http://localhost:9005/api/readBooking");
+      const res = await axios.get(
+        "https://hariye-tour-agency-gxx3.onrender.com/api/readBooking",
+      );
       const allBookings = res.data.data || [];
-      const accepted = allBookings.filter((booking) => booking.status === "allowed");
+      const accepted = allBookings.filter(
+        (booking) => booking.status === "allowed",
+      );
       setAcceptedBookings(accepted);
     } catch (error) {
       console.error("Error fetching accepted bookings:", error);
@@ -93,7 +97,10 @@ function AcceptedBookingsTable() {
                 <tbody className="divide-y divide-slate-100">
                   {acceptedBookings.length === 0 ? (
                     <tr>
-                      <td colSpan="5" className="p-8 text-center text-slate-500">
+                      <td
+                        colSpan="5"
+                        className="p-8 text-center text-slate-500"
+                      >
                         No accepted bookings yet
                       </td>
                     </tr>
@@ -142,7 +149,9 @@ function AcceptedBookingsTable() {
             <div className="flex items-center justify-between border-b border-slate-200 p-6">
               <div>
                 <h2 className="text-xl font-bold text-slate-900">Tour Info</h2>
-                <p className="text-sm text-slate-500">Details for the selected accepted booking.</p>
+                <p className="text-sm text-slate-500">
+                  Details for the selected accepted booking.
+                </p>
               </div>
               <button
                 onClick={() => setSelectedBooking(null)}
@@ -154,34 +163,68 @@ function AcceptedBookingsTable() {
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Tour Name</p>
-                  <p className="text-slate-800 font-semibold">{selectedBooking.tourId?.title || "N/A"}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                    Tour Name
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    {selectedBooking.tourId?.title || "N/A"}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Price</p>
-                  <p className="text-slate-800 font-semibold">${selectedBooking.tourId?.price || "N/A"}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                    Price
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    ${selectedBooking.tourId?.price || "N/A"}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Location</p>
-                  <p className="text-slate-800 font-semibold">{selectedBooking.tourId?.city}, {selectedBooking.tourId?.country}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                    Location
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    {selectedBooking.tourId?.city},{" "}
+                    {selectedBooking.tourId?.country}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Duration</p>
-                  <p className="text-slate-800 font-semibold">{selectedBooking.tourId?.duration || "N/A"}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                    Duration
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    {selectedBooking.tourId?.duration || "N/A"}
+                  </p>
                 </div>
               </div>
               <div>
-                <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Tour Description</p>
-                <p className="text-slate-700 text-sm leading-relaxed">{selectedBooking.tourId?.description || "No description available."}</p>
+                <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                  Tour Description
+                </p>
+                <p className="text-slate-700 text-sm leading-relaxed">
+                  {selectedBooking.tourId?.description ||
+                    "No description available."}
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Start Day</p>
-                  <p className="text-slate-800 font-semibold">{selectedBooking.tourId?.startDay ? new Date(selectedBooking.tourId.startDay).toLocaleDateString() : "N/A"}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                    Start Day
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    {selectedBooking.tourId?.startDay
+                      ? new Date(
+                          selectedBooking.tourId.startDay,
+                        ).toLocaleDateString()
+                      : "N/A"}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">Booking Status</p>
-                  <p className="text-slate-800 font-semibold">{selectedBooking.status?.toUpperCase()}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-[.2em] mb-2">
+                    Booking Status
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    {selectedBooking.status?.toUpperCase()}
+                  </p>
                 </div>
               </div>
             </div>
