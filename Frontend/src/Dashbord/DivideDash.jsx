@@ -17,7 +17,7 @@ function DivideDash() {
 
   const HandalReadTour = () => {
     axios
-      .get("https://hariye-tour-agency-gxx3.onrender.com/api/readAllTour")
+      .get("http://localhost:9005api/readAllTour")
       .then((res) => {
         setData(res.data.data);
       })
@@ -25,7 +25,7 @@ function DivideDash() {
   };
   const HandalAuthTour = () => {
     axios
-      .get("https://hariye-tour-agency-gxx3.onrender.com/api/readAuth")
+      .get("http://localhost:9005api/readAuth")
       .then((res) => {
         console.log(res.data);
         setAuth(res.data.data);
@@ -34,7 +34,7 @@ function DivideDash() {
   };
   const HandalReadBooking = () => {
     axios
-      .get("https://hariye-tour-agency-gxx3.onrender.com/api/readBooking")
+      .get("http://localhost:9005api/readBooking")
       .then((res) => {
         // FIXED: Accessing res.data.data to match your controller
         setBooking(res.data.data || []);
@@ -43,7 +43,7 @@ function DivideDash() {
   };
   const HandalGetStats = () => {
     axios
-      .get("https://hariye-tour-agency-gxx3.onrender.com/api/getStats")
+      .get("http://localhost:9005api/getStats")
       .then((res) => {
         setStats(res.data.data);
       })

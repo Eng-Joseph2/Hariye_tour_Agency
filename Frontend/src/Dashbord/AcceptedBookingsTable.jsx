@@ -11,9 +11,7 @@ function AcceptedBookingsTable() {
 
   const fetchAcceptedBookings = async () => {
     try {
-      const res = await axios.get(
-        "https://hariye-tour-agency-gxx3.onrender.com/api/readBooking",
-      );
+      const res = await axios.get("http://localhost:9005api/readBooking");
       const allBookings = res.data.data || [];
       const accepted = allBookings.filter(
         (booking) => booking.status === "allowed",

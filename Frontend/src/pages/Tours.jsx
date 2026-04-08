@@ -15,7 +15,7 @@ const Tours = () => {
   // 1. Fetch the original data from the API only once
   useEffect(() => {
     axios
-      .get("https://hariye-tour-agency-gxx3.onrender.com/api/readAllTour")
+      .get("http://localhost:9005/api/readAllTour")
       .then((res) => {
         setData(res.data.data);
       })
@@ -163,7 +163,7 @@ const Tours = () => {
               <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition group">
                 <div className="relative">
                   <img
-                    src={`https://hariye-tour-agency-gxx3.onrender.com/images/${tour.image}`}
+                    src={`http://localhost:9005/images/${tour.image}`}
                     alt={tour.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition duration-500"
                   />

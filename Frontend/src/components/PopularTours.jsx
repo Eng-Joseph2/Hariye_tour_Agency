@@ -10,7 +10,7 @@ export default function PopularTours() {
 
   const HandalReadTour = () => {
     axios
-      .get("https://hariye-tour-agency-gxx3.onrender.com/api/readAllTour")
+      .get("http://localhost:9005/api/readAllTour")
       .then((res) => {
         setData(res.data.data);
       })
